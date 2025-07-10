@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: grey ; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #47B5FF; 
+}
+
+@media screen and (max-width: 430px) {
+    .app {
+        background: #001C35;
+        color: #DFF6FF;
+    }
+    .container{
+        padding: 0;
+    }
+    .content-box{
+        margin: 0px 50px !important;
+        padding: 10px 0px !important;
+        min-height: 90vh !important;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .content-box{
+        margin: 0px 50px !important;
+        padding: 150px 0px !important;
+        min-height: 100vh !important;
+    }
+}
+
+@media screen and (min-width: 600){
+    .content-box{
+        margin: 0px 50px !important;
+        padding: 150px 0px !important;
+        min-height: 100vh !important;
+    }
+}
+
+body{
+    height: fit-content;
+    background: #001C35;
+    color: #DFF6FF;
+    font-family: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
+}
+
+.content-box p{
+    margin-bottom: 10px;
+}
+
+.content-box{
+    margin: 0px 100px;
+    padding: 150px 0px;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    min-height: 100vh;
+}
+
+.content-box:last-child{
+    padding-bottom: 0px !important;
+}
+
+#navbar{
+    animation: dropAnimation ease 0.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 999;
+    width: 100vw;
+}
+
+@keyframes dropAnimation {
+    0% {
+        transform: translate3d(0, -100px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.loaderBorder{
+    border: 15px solid #001C35;
+    animation: spin 3.6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes spin {
+    0%{
+        border: 15px solid #001C35;
+    }
+    25% {
+        border: 15px solid #001C35;
+        border-top: 15px solid #47B5FF;
+    }
+    50% {
+        border: 15px solid #001C35;
+        border-top: 15px solid #47B5FF;
+        border-right: 15px solid #47B5FF;
+    }
+    75% {
+        border: 15px solid #001C35;
+        border-top: 15px solid #47B5FF;
+        border-right: 15px solid #47B5FF;
+        border-bottom: 15px solid #47B5FF;
+    }
+    100%{
+        border: 15px solid #47B5FF;
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.rightpanel{
+    border-left: 2px dashed white;
+}
+
+.leftpanel{
+    border-right: 2px dashed white;
+}
