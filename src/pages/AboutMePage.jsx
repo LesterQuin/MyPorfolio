@@ -1,5 +1,4 @@
 import React from "react";
-
 import pic from "../assets/rq.jpg";
 
 function AboutMePage() {
