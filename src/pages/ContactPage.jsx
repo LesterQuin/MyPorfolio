@@ -1,4 +1,5 @@
 import React from "react";
+import ResumePDF from "../assets/Lester_Quinones_Resume.pdf";
 
 function ContactPage() {
   return (
@@ -11,6 +12,8 @@ function ContactPage() {
             and opportunities where I can contribute, learn, and grow. I'll get
             back to you as soon as I can.
           </p>
+
+          {/* Email Button */}
           <div className="flex">
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=lehzter@gmail.com"
@@ -21,6 +24,8 @@ function ContactPage() {
             </a>
           </div>
           <br />
+
+          {/* LinkedIn Button */}
           <div className="flex">
             <a
               href="https://www.linkedin.com/in/lester-qui%C3%B1ones-95b012220/"
@@ -28,6 +33,18 @@ function ContactPage() {
               className="m-auto p-3 rounded-lg text-xl border border-lightblue text-white font-bold hover:text-navy hover:bg-lightblue"
             >
               <i className="fab fa-linkedin-square fa-sm"></i> MESSAGE ME
+            </a>
+          </div>
+          <br />
+
+          {/* Download Resume Button */}
+          <div className="flex">
+            <a
+              href={ResumePDF}
+              download="Lester_Quinones_Resume.pdf"
+              className="m-auto p-3 rounded-lg text-xl border border-lightblue text-white font-bold hover:text-navy hover:bg-lightblue"
+            >
+              <i className="fa fa-download fa-sm"></i> DOWNLOAD RESUME
             </a>
           </div>
         </div>
