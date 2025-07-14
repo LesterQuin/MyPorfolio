@@ -3,6 +3,6 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/lquinones/',
+  base: '/MyPorfolio/',
   plugins: [react()],
 })
