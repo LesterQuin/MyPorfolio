@@ -6,7 +6,7 @@ function ExperiencePage() {
     {
       company: "StorageMart Corporation",
       role: "IT Officer",
-      duration: "February - Present",
+      duration: "February 2025 - July 2025",
       description: [
         "Currently handling the website maintenance through WPBakery.",
         "Ensure all installed plugins are updated to their latest versions to maintain security and compatibility.",

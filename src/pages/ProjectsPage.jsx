@@ -22,8 +22,8 @@ function ProjectsPage() {
           <div className="w-[50%] mobile-lg:!w-[100%] p-3">
             <p>
             StorageMart is an online platform designed to streamline and modernize storage facility operations,
-            catering to both individual and enterprise users. It provides real-time access to unit availability, booking
-            management, payment processing, and facility updates – all from one intuitive dashboard.
+            catering to both individual and enterprise users. It provides real-time access to Sizes availability, booking
+            management, payment processing, and merchandise – all from one intuitive dashboard.
             </p>
             <p>
               Storagemart - is developed using Wordpress WPbakery 
