@@ -8,156 +8,94 @@ import crImg from "../assets/cameron.png";
 
 function ProjectsPage() {
   return (
-    <div className="content-box">
+    <div className="content-box text-white">
       <div className="text-5xl text-left">Projects</div>
       <div className="flex flex-wrap py-5">
-        <div className="w-[100%] flex flex-wrap">
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3 my-auto">
-            <img className="w-auto h-auto" src={axaImg} alt="RQ" />
-            <div className="text-xl text-justify">
-              {" "}
-              StorageMart Corporation{" "}
+        {/* Project Item Template */}
+        {[
+          {
+            img: axaImg,
+            title: "StorageMart Corporation",
+            desc: `StorageMart is an online platform designed to streamline and modernize storage facility operations,
+              catering to both individual and enterprise users. It provides real-time access to size availability, booking
+              management, payment processing, and merchandise – all from one intuitive dashboard.`,
+            tech: "Developed using WordPress (WPBakery)",
+            link: "https://www.storagemart.com.ph/",
+            role: "Website maintenance, page building, UI content placement, bug fixing, plugin integration"
+          },
+          {
+            img: pfImg,
+            title: "Attendance Storagemart Monitoring",
+            desc: `A custom-built, web-based timekeeping solution that enables StorageMart to monitor employee
+              attendance across all locations. Provides real-time logging and reporting.`,
+            tech: "Developed using PHP and HTML",
+            link: "https://www.attendance.storagemart.com.ph/",
+            role: "Developed full backend and frontend system with real-time attendance logging and export reports"
+          },
+          {
+            img: wmImg,
+            title: "BCS Technology International Pty Ltd",
+            desc: `The company website enhances global outreach for enterprise clients, allowing them to discover
+              innovation-driven services and solutions.`,
+            tech: "Developed using WordPress (Elementor)",
+            link: "https://bcstechnology.com.au/",
+            role: "Maintained WordPress pages, optimized loading speed, and handled updates with Elementor"
+          },
+          {
+            img: wlImg,
+            title: "Wealthlander",
+            desc: `Investor-focused platform for presenting alternative investment opportunities with transparency,
+              regulatory compliance, and educational content.`,
+            tech: "Developed using WordPress (WPBakery)",
+            link: "https://wealthlander.com.au/",
+            role: "Assisted in theme customization, branding consistency, and plugin configurations"
+          },
+          {
+            img: crImg,
+            title: "Cameron Crick Racing",
+            desc: `The official website of Australian racer Cameron Crick featuring news, sponsorship info,
+              and behind-the-scenes insights.`,
+            tech: "Developed using WordPress (Elementor)",
+            link: "https://www.cameroncrickracing.com.au/",
+            role: "Managed updates, content upload, race blog formatting, and responsive adjustments"
+          }
+        ].map((proj, index) => (
+          <React.Fragment key={index}>
+            <div className="w-full flex flex-wrap">
+              <div className="w-1/2 mobile-lg:!w-full p-3 flex justify-center items-center">
+                <div className="text-center">
+                  <img
+                    className="w-auto h-auto max-h-60 rounded-xl shadow-md transform transition duration-300 hover:scale-105 mx-auto"
+                    src={proj.img}
+                    alt={proj.title}
+                  />
+                  <div className="text-xl text-justify mt-2">{proj.title}</div>
+                </div>
+              </div>
+              <div className="w-1/2 mobile-lg:!w-full p-3 flex items-center">
+                <div className="space-y-4">
+                  <p>{proj.desc}</p>
+                  <p className="italic text-sm text-gray-300">{proj.tech}</p>
+                  <p>
+                    Project Website:{" "}
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-blue-400 hover:text-blue-300"
+                    >
+                      {proj.link}
+                    </a>
+                  </p>
+                  <p>
+                    <strong>My Role:</strong> {proj.role}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3">
-            <p>
-            StorageMart is an online platform designed to streamline and modernize storage facility operations,
-            catering to both individual and enterprise users. It provides real-time access to Sizes availability, booking
-            management, payment processing, and merchandise – all from one intuitive dashboard.
-            </p>
-            <p>
-              Storagemart - is developed using Wordpress WPbakery 
-            </p>
-            <p>
-              Project Website: <span></span>
-              <a
-                target="blank"
-                href="https://www.storagemart.com.ph/"
-              >
-                <u>https://www.storagemart.com.ph/</u>
-              </a>
-            </p>
-          </div>
-        </div>
-        <hr className="my-4 w-[100%]" />
-        <div className="w-[100%] flex flex-wrap">
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3 my-auto">
-            <img className="w-auto h-auto" src={pfImg} alt="RQ" />
-            <div className="text-xl text-justify"> Attendance Storagemart Monitoring </div>
-          </div>
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3">
-            <p>
-            StorageMart – Attendance Monitoring is a custom-built, web-based timekeeping solution designed to
-            streamline employee attendance tracking across all StorageMart locations. Developed using PHP and HTML,
-            the system provides real-time monitoring, logs, and reporting capabilities to support efficient HR and
-            operational management.
-            </p>
-            <p>
-              The website is developed using PHP/HTML
-            </p>
-            <p>
-              Project Website: <span></span>
-              <a target="blank" href="https://www.attendance.storagemart.com.ph/">
-                <u>https://www.attendance.storagemart.com.ph/</u>
-              </a>
-            </p>
-          </div>
-        </div>
-        <hr className="my-4 w-[100%]" />
-        <div className="w-[100%] flex flex-wrap">
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3 my-auto">
-            <img className="w-auto h-auto" src={wmImg} alt="RQ" />
-            <div className="text-xl text-justify"> BCS Technology International Pty Ltd</div>
-          </div>
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3">
-            <p>
-            BCS Technology website is designed to support the company’s global outreach, enabling prospective
-            clients, partners, and recruits to learn more about its enterprise solutions, innovation-driven services, and
-            business values.
-            </p>
-            <p>
-              The system is developed using Wordpress using Elementor
-            </p>
-            <p>
-              Project Website: <span></span>
-              <a target="blank" href="https://bcstechnology.com.au/">
-                <u>https://bcstechnology.com.au/</u>
-              </a>
-            </p>
-          </div>
-        </div>
-        <hr className="my-4 w-[100%]" />
-        <div className="w-[100%] flex flex-wrap">
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3 my-auto">
-            <img className="w-auto h-auto" src={wlImg} alt="RQ" />
-            <div className="text-xl text-justify"> Wealthlander </div>
-          </div>
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3">
-            <p>
-            WealthLander’s site serves as both a brand hub and investor gateway, ensuring transparency, education,
-            and regulatory compliance while presenting its alternative investment approach clearly to potential clients
-            and partners.
-            </p>
-            <p>
-              The system is developed using wordpress in WPBakery.
-            </p>
-            <p>
-              Project Website: <span></span>
-              <a target="blank" href="https://wealthlander.com.au/">
-                <u>https://wealthlander.com.au/</u>
-              </a>
-            </p>
-          </div>
-        </div>
-        <hr className="my-4 w-[100%]" />
-        <div className="w-[100%] flex flex-wrap">
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3 my-auto">
-            <img className="w-auto h-auto" src={crImg} alt="RQ" />
-            <div className="text-xl text-justify"> Cameron Crick Racing </div>
-          </div>
-          <div className="w-[50%] mobile-lg:!w-[100%] p-3">
-            <p>
-            Cameron Crick Racing is the official digital platform representing Australian racing driver Cameron Crick.
-            Built on WordPress and designed with Elementor, the site provides fans, sponsors, and motorsport
-            enthusiasts with a central hub for race updates, sponsorship opportunities, media content, and personal
-            insights into Cameron’s journey.
-            </p>
-            <p>
-              The system is developed using wordpress in Elementor.
-            </p>
-            <p>
-              Project Website: <span></span>
-              <a target="blank" href="https://www.cameroncrickracing.com.au/">
-                <u>https://www.cameroncrickracing.com.au/</u>
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-end gap-4 py-1">
-        <a
-          className="hover:text-lightblue flex items-center gap-1"
-          href="https://github.com/LesterQuin"
-          target="_blank"
-        >
-          GitHub <i className="fab fa-github fa-lg"></i>
-        </a>
-
-        <a
-          className="hover:text-lightblue flex items-center gap-1"
-          href="https://facebook.com/ryanquin"
-          target="_blank"
-        >
-          Facebook <i className="fab fa-facebook fa-lg"></i>
-        </a>
-
-        <a
-          className="hover:text-lightblue flex items-center gap-1"
-          href="https://www.instagram.com/acether.png"
-          target="_blank"
-        >
-          Instagram <i className="fab fa-instagram fa-lg"></i>
-        </a>
+            <hr className="my-4 w-full" />
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );

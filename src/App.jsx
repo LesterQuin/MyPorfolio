@@ -5,6 +5,7 @@ import ContactPage from "./pages/ContactPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
+import CertificatePage from "./pages/CertificatePage";
 
 import Header from "./components/Header";
 import LeftPanel from "./components/LeftPanel";
@@ -17,6 +18,7 @@ function App() {
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const certificateRef = useRef(null);
 
   const scrollDown = (ref) => {
     ref.current.scrollIntoView({
@@ -55,6 +57,12 @@ function App() {
           <span className="text-lightblue"> </span>Projects
         </button>
         <button
+         className="text-left hover:text-lightblue focus:text-lightblue"
+         onClick={() => scrollDown(certificateRef)}
+        >
+           <span className="text-lightblue"> </span>Certificate
+        </button>
+        <button
           className="text-left hover:text-lightblue focus:text-lightblue"
           onClick={() => scrollDown(contactRef)}
         >
@@ -75,6 +83,9 @@ function App() {
       <div className="container" ref={projectsRef}>
         <ProjectsPage />
       </div>
+      <div className="container" ref={certificateRef}>
+        <CertificatePage />
+    </div>
       <div className="container" ref={contactRef}>
         <ContactPage />
       </div>
@@ -82,4 +93,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
