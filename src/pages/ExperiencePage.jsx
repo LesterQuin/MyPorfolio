@@ -99,8 +99,24 @@ function ExperiencePage() {
         Experience
       </h2>
 
-      {/* Tabs & Details Grid */}
-      <div className="grid md:grid-cols-12 gap-8 items-start">
+      <div className="max-w-5xl mx-auto w-full glass-card border border-slate-200/50 dark:border-slate-800/50 rounded-3xl shadow-xl overflow-hidden">
+        {/* macOS Window Title Bar */}
+        <div className="bg-slate-100/40 dark:bg-slate-900/40 px-5 py-3.5 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
+          <div className="flex space-x-2">
+            <span className="w-3 h-3 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center text-[7px] text-rose-900 font-bold cursor-pointer">&times;</span>
+            <span className="w-3 h-3 rounded-full bg-amber-500 hover:bg-amber-600 transition-colors flex items-center justify-center text-[7px] text-amber-900 font-bold cursor-pointer">&minus;</span>
+            <span className="w-3 h-3 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors flex items-center justify-center text-[6px] text-emerald-950 font-bold cursor-pointer">&#43;</span>
+          </div>
+          <div className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+            <i className="fas fa-file-code text-[11px] text-blue-500"></i>
+            <span>work_experience.json</span>
+          </div>
+          <div className="w-12"></div>
+        </div>
+
+        {/* Window Content */}
+        <div className="p-6 sm:p-10">
+          <div className="grid md:grid-cols-12 gap-8 items-start">
         {/* Tab Buttons (Left Column on Desktop, Top Scroll on Mobile) */}
         <div className="md:col-span-4 flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-slate-200 dark:border-slate-800 pb-2 md:pb-0 scrollbar-none">
           {workExperiences.map((experience, index) => (
@@ -159,6 +175,8 @@ function ExperiencePage() {
         </div>
       </div>
     </div>
+  </div>
+</div>
   );
 }
 

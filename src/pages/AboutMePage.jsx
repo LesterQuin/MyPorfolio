@@ -41,37 +41,53 @@ function AboutMePage() {
         About Me
       </h2>
 
-      <div className="max-w-4xl mx-auto w-full space-y-12">
-        {/* Intro bio card */}
-        <div className="border-l-4 border-blue-500 pl-6 space-y-4">
-          <p className="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-200 leading-snug">
-            Hi! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-bold">Lester</span>, a dedicated Full Stack Developer with a passion for building high-quality web applications.
-          </p>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            <p>
-              With hands-on experience in both front-end and back-end development, I’ve successfully contributed to several projects from inception to completion.
-            </p>
-            <p>
-              I thrive on solving complex problems and continuously seek opportunities to learn and embrace new technologies.
-            </p>
+      <div className="max-w-4xl mx-auto w-full glass-card border border-slate-200/50 dark:border-slate-800/50 rounded-3xl shadow-xl overflow-hidden">
+        {/* macOS Window Title Bar */}
+        <div className="bg-slate-100/40 dark:bg-slate-900/40 px-5 py-3.5 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
+          <div className="flex space-x-2">
+            <span className="w-3 h-3 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center text-[7px] text-rose-900 font-bold cursor-pointer">&times;</span>
+            <span className="w-3 h-3 rounded-full bg-amber-500 hover:bg-amber-600 transition-colors flex items-center justify-center text-[7px] text-amber-900 font-bold cursor-pointer">&minus;</span>
+            <span className="w-3 h-3 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors flex items-center justify-center text-[6px] text-emerald-950 font-bold cursor-pointer">&#43;</span>
           </div>
+          <div className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+            <i className="fab fa-js-square text-[11px] text-yellow-500"></i>
+            <span>about_me.js</span>
+          </div>
+          <div className="w-12"></div>
         </div>
 
-        {/* Unified Capabilities Table */}
-        <div className="space-y-6">
+        {/* Window Content */}
+        <div className="p-6 sm:p-10 space-y-12">
+          {/* Intro bio card */}
+          <div className="border-l-4 border-blue-500 pl-6 space-y-4">
+            <p className="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-200 leading-snug">
+              Hi! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-bold">Lester</span>, a dedicated Full Stack Developer with a passion for building high-quality web applications.
+            </p>
+            <div className="space-y-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p>
+                With hands-on experience in both front-end and back-end development, I’ve successfully contributed to several projects from inception to completion.
+              </p>
+              <p>
+                I thrive on solving complex problems and continuously seek opportunities to learn and embrace new technologies.
+              </p>
+            </div>
+          </div>
+
+          {/* Unified Capabilities Table */}
+          <div className="space-y-6 max-w-3xl mx-auto w-full">
           <h3 className="text-xl font-bold text-slate-800 dark:text-white">
             Capabilities & Technical Expertise
           </h3>
           
           <div className="glass-card border border-slate-200/50 dark:border-slate-800/50 rounded-2xl overflow-hidden shadow-sm">
             <div className="w-full overflow-x-auto scrollbar-none">
-              <table className="min-w-[700px] w-full text-left border-collapse">
+              <table className="min-w-[650px] w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-100/50 dark:bg-slate-800/30 border-b border-slate-200/50 dark:border-slate-800/50">
-                    <th className="py-4 px-6 font-semibold text-sm text-slate-600 dark:text-slate-300 w-[45%]">
+                    <th className="py-3.5 px-4 font-semibold text-xs text-slate-650 dark:text-slate-350 w-[38%]">
                       Category & Focus Area
                     </th>
-                    <th className="py-4 px-6 font-semibold text-sm text-slate-600 dark:text-slate-300 w-[55%]">
+                    <th className="py-3.5 px-4 font-semibold text-xs text-slate-650 dark:text-slate-350 w-[62%]">
                       Technologies & Tools
                     </th>
                   </tr>
@@ -82,25 +98,25 @@ function AboutMePage() {
                       key={idx} 
                       className="border-b last:border-0 border-slate-200/40 dark:border-slate-800/40 hover:bg-slate-50/50 dark:hover:bg-slate-800/10 transition-colors"
                     >
-                      <td className="py-5 px-6 space-y-2 align-top">
-                        <div className="flex items-center space-x-2.5">
-                          <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs">
+                      <td className="py-4 px-4 space-y-2 align-top">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs">
                             <i className={item.icon}></i>
                           </div>
-                          <span className="font-bold text-slate-800 dark:text-slate-200 text-sm sm:text-base">
+                          <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">
                             {item.category}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed pl-10">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pl-9">
                           {item.focus}
                         </p>
                       </td>
-                      <td className="py-5 px-6 align-top">
-                        <div className="flex flex-wrap gap-2 pt-1 pl-2">
+                      <td className="py-4 px-4 align-top">
+                        <div className="flex flex-wrap gap-1.5 pt-1 pl-1">
                           {item.skills.map((skill, sIdx) => (
                             <span
                               key={sIdx}
-                              className="text-xs font-mono font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-200/30 dark:border-slate-700/50"
+                              className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border border-slate-250/30 dark:border-slate-700/50"
                             >
                               {skill}
                             </span>
@@ -114,10 +130,10 @@ function AboutMePage() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default AboutMePage;

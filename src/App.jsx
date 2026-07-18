@@ -12,12 +12,14 @@ import LeftPanel from "./components/LeftPanel";
 import Loader from "./components/Loader";
 import RightPanel from "./components/RightPanel";
 import ScrollReveal from "./components/ScrollReveal";
+import ResumeModal from "./components/ResumeModal";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "dark";
   });
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -209,10 +211,12 @@ function App() {
         </div>
         <div ref={contactRef}>
           <ScrollReveal>
-            <ContactPage />
+            <ContactPage onOpenResume={() => setIsResumeOpen(true)} />
           </ScrollReveal>
         </div>
       </main>
+
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   );
 }

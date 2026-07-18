@@ -82,70 +82,106 @@ function ProjectsPage() {
         Projects
       </h2>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto w-full glass-card border border-slate-200/50 dark:border-slate-800/50 rounded-3xl shadow-xl overflow-hidden">
+        {/* macOS Window Title Bar */}
+        <div className="bg-slate-100/40 dark:bg-slate-900/40 px-5 py-3.5 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
+          <div className="flex space-x-2">
+            <span className="w-3 h-3 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center text-[7px] text-rose-900 font-bold cursor-pointer">&times;</span>
+            <span className="w-3 h-3 rounded-full bg-amber-500 hover:bg-amber-600 transition-colors flex items-center justify-center text-[7px] text-amber-900 font-bold cursor-pointer">&minus;</span>
+            <span className="w-3 h-3 rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors flex items-center justify-center text-[6px] text-emerald-950 font-bold cursor-pointer">&#43;</span>
+          </div>
+          <div className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+            <i className="fab fa-python text-[11px] text-blue-500"></i>
+            <span>my_projects.py</span>
+          </div>
+          <div className="w-12"></div>
+        </div>
+
+        {/* Window Content */}
+        <div className="p-6 sm:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projectsList.map((proj, index) => (
           <div
             key={index}
             className="glass-card flex flex-col h-full border border-slate-200/50 dark:border-slate-800/50 rounded-2xl overflow-hidden group transition-all duration-300"
           >
-            {/* Image Header */}
-            <div className="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50">
-              <ProjectImage
-                url={proj.link}
-                fallbackImg={proj.img}
-                title={proj.title}
-                forceStatic={proj.forceStatic}
-              />
-              <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <a
-                  href={proj.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-semibold shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                >
-                  Visit Website <i className="fas fa-external-link-alt text-xs"></i>
-                </a>
-              </div>
-            </div>
-
-            {/* Card Content */}
-            <div className="p-6 flex flex-col flex-1 space-y-4">
-              <div className="flex items-start justify-between">
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white group-hover:text-blue-500 transition-colors">
-                  {proj.title}
-                </h3>
-                <span className="text-xs font-mono font-semibold px-2 py-1 rounded bg-blue-500/10 text-lightblue border border-blue-500/20">
-                  {proj.tech}
+            {/* Image Header (Simulated Browser window layout) */}
+            <div className="relative overflow-hidden aspect-video bg-slate-100 dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50 flex flex-col">
+              {/* Mock Browser Header Bar */}
+              <div className="bg-slate-200/30 dark:bg-[#121319]/40 px-3 py-1.5 border-b border-slate-200/30 dark:border-slate-800/30 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-450 dark:bg-rose-500"></span>
+                <span className="w-2 h-2 rounded-full bg-amber-450 dark:bg-amber-500"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-450 dark:bg-emerald-500"></span>
+                <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 ml-2 truncate max-w-[180px]">
+                  {proj.link.replace("https://", "")}
                 </span>
               </div>
-
-              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed flex-1">
-                {proj.desc}
-              </p>
-
-              {/* Role Details */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800/50 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                <p className="mb-2">
-                  <strong className="text-slate-700 dark:text-slate-300 font-semibold">My Role:</strong> {proj.role}
-                </p>
-                <p className="flex items-center gap-2">
-                  <strong className="text-slate-700 dark:text-slate-300 font-semibold">Link: </strong>
+              
+              <div className="relative flex-1 overflow-hidden group">
+                <ProjectImage
+                  url={proj.link}
+                  fallbackImg={proj.img}
+                  title={proj.title}
+                  forceStatic={proj.forceStatic}
+                />
+                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <a
                     href={proj.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 break-all"
+                    className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-semibold shadow-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                   >
-                    {proj.link}
+                    Visit Website <i className="fas fa-external-link-alt text-xs"></i>
                   </a>
-                </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card Content (Redesigned as simulated Terminal output block) */}
+            <div className="p-6 flex flex-col flex-1 space-y-4 font-mono text-xs sm:text-sm bg-slate-55 dark:bg-[#0c0d12]">
+              <div className="text-[#10b981] font-semibold">
+                $ git show {proj.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}
+              </div>
+              
+              <div className="space-y-4 font-sans flex-1">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-white font-sans group-hover:text-blue-500 transition-colors">
+                    {proj.title}
+                  </h3>
+                  <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-blue-500/10 text-lightblue border border-blue-500/20">
+                    {proj.tech}
+                  </span>
+                </div>
+
+                <div className="space-y-3 pl-2 border-l-2 border-slate-200 dark:border-slate-800">
+                  <div className="space-y-0.5">
+                    <span className="text-[#10b981] font-semibold block text-[10px] uppercase tracking-wider font-mono">$ cat role.txt</span>
+                    <p className="text-slate-650 dark:text-slate-350 pl-2 leading-relaxed text-xs sm:text-sm font-sans">{proj.role}</p>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[#10b981] font-semibold block text-[10px] uppercase tracking-wider font-mono">$ cat desc.txt</span>
+                    <p className="text-slate-650 dark:text-slate-350 pl-2 leading-relaxed text-xs sm:text-sm font-sans">{proj.desc}</p>
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[#10b981] font-semibold block text-[10px] uppercase tracking-wider font-mono">$ cat link.url</span>
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 pl-2 break-all text-xs sm:text-sm font-mono"
+                    >
+                      {proj.link}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
     </div>
+  </div>
+</div>
   );
 }
 

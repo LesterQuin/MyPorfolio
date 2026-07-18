@@ -1,7 +1,6 @@
 import React from "react";
-import ResumePDF from "../assets/Lester_Quinones_Resume.pdf";
 
-function ContactPage() {
+function ContactPage({ onOpenResume }) {
   return (
     <div className="content-box">
       {/* Section Title */}
@@ -9,90 +8,143 @@ function ContactPage() {
         Contact
       </h2>
 
-      <div className="max-w-4xl mx-auto text-center space-y-12">
-        {/* Intro Message */}
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-          Interested in working together? I’m always open to new projects and opportunities where I can contribute, learn, and grow. Feel free to reach out — I'll get back to you as soon as I can!
-        </p>
-
-        {/* CTA cards layout */}
-        <div className="grid sm:grid-cols-2 gap-6 pt-4">
-          {/* Card 1: Email */}
-          <div className="glass-card p-6 border border-slate-200/50 dark:border-slate-800/50 rounded-2xl flex flex-col justify-between items-center text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-blue-500/10 dark:bg-blue-500/15 flex items-center justify-center text-blue-500 dark:text-lightblue text-xl">
-              <i className="fas fa-envelope"></i>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white">Email Address</h3>
-              <p className="text-sm text-slate-400 font-mono mt-1">lehzter@gmail.com</p>
-            </div>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=lehzter@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 rounded-xl border border-blue-500 text-blue-500 dark:border-blue-400 dark:text-lightblue font-semibold hover:bg-blue-500/10 transition-colors duration-200 flex items-center justify-center gap-2"
-            >
-              Email Me <i className="fas fa-paper-plane text-xs"></i>
-            </a>
+      <div className="max-w-4xl mx-auto w-full bg-white dark:bg-[#0a0b0d] border border-slate-200/50 dark:border-slate-800/50 rounded-3xl shadow-xl overflow-hidden animate-fade-in-up">
+        {/* macOS Window Title Bar */}
+        <div className="bg-slate-100/50 dark:bg-[#121319] px-5 py-3.5 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
+          <div className="flex space-x-2">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f56] cursor-pointer"></span>
+            <span className="w-3 h-3 rounded-full bg-[#ffbd2e] cursor-pointer"></span>
+            <span className="w-3 h-3 rounded-full bg-[#27c93f] cursor-pointer"></span>
           </div>
-
-          {/* Card 2: LinkedIn */}
-          <div className="glass-card p-6 border border-slate-200/50 dark:border-slate-800/50 rounded-2xl flex flex-col justify-between items-center text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-indigo-500/10 dark:bg-indigo-500/15 flex items-center justify-center text-indigo-500 dark:text-indigo-400 text-xl">
-              <i className="fab fa-linkedin-in"></i>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-white">Professional Profile</h3>
-              <p className="text-sm text-slate-400 font-mono mt-1">LinkedIn Network</p>
-            </div>
-            <a
-              href="https://www.linkedin.com/in/lester-qui%C3%B1ones-95b012220/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 rounded-xl border border-indigo-500 text-indigo-500 dark:border-indigo-400 dark:text-indigo-300 font-semibold hover:bg-indigo-500/10 transition-colors duration-200 flex items-center justify-center gap-2"
-            >
-              Message Me <i className="fab fa-linkedin text-xs"></i>
-            </a>
+          <div className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+            <i className="fas fa-terminal text-[10px] text-blue-500 dark:text-lightblue"></i>
+            <span>contact.sh</span>
           </div>
+          <div className="w-12"></div>
         </div>
 
-        {/* Resume Action */}
-        <div className="pt-4">
-          <a
-            href={ResumePDF}
-            download="Lester_Quinones_Resume.pdf"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-blue-500 text-white font-bold hover:bg-blue-600 shadow-md dark:shadow-blue-500/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
-          >
-            <i className="fas fa-download"></i> Download Resume
-          </a>
-        </div>
+        {/* Window Content */}
+        <div className="p-6 sm:p-10 space-y-8 text-left font-mono">
+          
+          {/* Prompt 1: Info */}
+          <div className="space-y-2">
+            <div className="text-[#10b981] text-sm sm:text-base font-semibold">
+              $ contact --info
+            </div>
+            <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white font-sans pl-4">
+              Let's Connect
+            </h3>
+          </div>
 
-        {/* Social Media Footer Shortcuts */}
-        <div className="border-t border-slate-200/50 dark:border-slate-800/50 pt-8 flex justify-center gap-6 text-sm font-semibold text-slate-500 dark:text-slate-400">
-          <a
-            href="https://github.com/LesterQuin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-lightblue dark:hover:text-lightblue flex items-center gap-2 transition-colors"
-          >
-            <i className="fab fa-github text-base"></i> GitHub
-          </a>
-          <a
-            href="https://www.facebook.com/lester.quin17/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-lightblue dark:hover:text-lightblue flex items-center gap-2 transition-colors"
-          >
-            <i className="fab fa-facebook text-base"></i> Facebook
-          </a>
-          <a
-            href="https://www.instagram.com/acether.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-lightblue dark:hover:text-lightblue flex items-center gap-2 transition-colors"
-          >
-            <i className="fab fa-instagram text-base"></i> Instagram
-          </a>
+          {/* Prompt 2: Current Location */}
+          <div className="space-y-2">
+            <div className="text-[#10b981] text-sm sm:text-base font-semibold">
+              $ location --current
+            </div>
+            <div className="pl-4 flex items-center gap-2 text-slate-700 dark:text-slate-200 text-sm sm:text-base font-sans">
+              <i className="fas fa-map-marker-alt text-rose-500"></i>
+              <span>Pasay City, Philippines</span>
+            </div>
+          </div>
+
+          {/* Prompt 3: Email */}
+          <div className="space-y-2">
+            <div className="text-[#10b981] text-sm sm:text-base font-semibold">
+              $ contact --email
+            </div>
+            <div className="pl-4">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=lehzter@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#10b981]/30 dark:border-[#10b981]/20 bg-[#10b981]/5 dark:bg-[#10b981]/5 text-[#10b981] font-semibold text-sm hover:bg-[#10b981]/10 transition-colors font-sans"
+              >
+                <i className="fas fa-envelope"></i> lehzter@gmail.com
+              </a>
+            </div>
+          </div>
+
+          {/* Prompt 4: Resume download */}
+          <div className="space-y-2">
+            <div className="text-[#10b981] text-sm sm:text-base font-semibold">
+              $ cat resume.md
+            </div>
+            <div className="pl-4">
+              <button
+                onClick={onOpenResume}
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#10b981] text-white font-bold hover:bg-[#0fa06e] shadow-md shadow-[#10b981]/10 transition-all duration-200 cursor-pointer font-sans focus:outline-none"
+              >
+                <i className="fas fa-file-alt"></i> Click Me !!
+              </button>
+            </div>
+          </div>
+
+          {/* Prompt 5: Social list */}
+          <div className="space-y-3">
+            <div className="text-[#10b981] text-sm sm:text-base font-semibold">
+              $ ls -la ./social-links
+            </div>
+            <div className="pl-4 space-y-2 font-mono text-xs sm:text-sm">
+              <div className="text-slate-400 dark:text-slate-500">total 4</div>
+              
+              <a
+                href="https://github.com/lesterquin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-wrap items-center gap-y-1.5 gap-x-3 py-2 px-3 rounded-xl hover:bg-[#10b981]/5 transition-all duration-150"
+              >
+                <span className="text-slate-500 group-hover:text-[#10b981] transition-colors">-rwxr-xr-x</span>
+                <span className="text-slate-400 group-hover:text-white transition-colors">1 lester staff</span>
+                <span className="text-slate-650 dark:text-slate-200 font-bold flex items-center gap-1.5 min-w-[120px]">
+                  <i className="fab fa-github text-slate-800 dark:text-slate-200"></i> github.sh
+                </span>
+                <span className="text-slate-450 dark:text-slate-400 group-hover:text-[#10b981] transition-colors">&rarr; @lesterquin</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/lester-qui%C3%B1ones-95b012220/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-wrap items-center gap-y-1.5 gap-x-3 py-2 px-3 rounded-xl hover:bg-[#10b981]/5 transition-all duration-150"
+              >
+                <span className="text-slate-500 group-hover:text-[#10b981] transition-colors">-rwxr-xr-x</span>
+                <span className="text-slate-400 group-hover:text-white transition-colors">1 lester staff</span>
+                <span className="text-[#0a66c2] font-bold flex items-center gap-1.5 min-w-[120px]">
+                  <i className="fab fa-linkedin-in"></i> linkedin.sh
+                </span>
+                <span className="text-slate-450 dark:text-slate-400 group-hover:text-[#10b981] transition-colors">&rarr; Lester Quiñones</span>
+              </a>
+
+              <a
+                href="https://www.facebook.com/lester.quin17/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-wrap items-center gap-y-1.5 gap-x-3 py-2 px-3 rounded-xl hover:bg-[#10b981]/5 transition-all duration-150"
+              >
+                <span className="text-slate-500 group-hover:text-[#10b981] transition-colors">-rwxr-xr-x</span>
+                <span className="text-slate-400 group-hover:text-white transition-colors">1 lester staff</span>
+                <span className="text-[#1877f2] font-bold flex items-center gap-1.5 min-w-[120px]">
+                  <i className="fab fa-facebook-f"></i> facebook.sh
+                </span>
+                <span className="text-slate-450 dark:text-slate-400 group-hover:text-[#10b981] transition-colors">&rarr; @lester.quin17</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/acether.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-wrap items-center gap-y-1.5 gap-x-3 py-2 px-3 rounded-xl hover:bg-[#10b981]/5 transition-all duration-150"
+              >
+                <span className="text-slate-500 group-hover:text-[#10b981] transition-colors">-rwxr-xr-x</span>
+                <span className="text-slate-400 group-hover:text-white transition-colors">1 lester staff</span>
+                <span className="text-[#c13584] font-bold flex items-center gap-1.5 min-w-[120px]">
+                  <i className="fab fa-instagram"></i> instagram.sh
+                </span>
+                <span className="text-slate-450 dark:text-slate-400 group-hover:text-[#10b981] transition-colors">&rarr; @acether.png</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
