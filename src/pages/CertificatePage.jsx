@@ -1,47 +1,62 @@
 import React, { useState } from "react";
+import attendance2026Pdf from "../assets/CERTIFICATE OF ATTENDANCE 2026 Interest Group Event  April 23, 2026  AIM Conference Center, Makati City.pdf";
 
 const certificates = [
+  {
+    title: "Certificate of Attendance - 2026 Interest Group Event",
+    issuer: "AIM Conference Center",
+    date: "April 23, 2026",
+    image: attendance2026Pdf,
+    isPdf: true,
+  },
   {
     title: "React Hook Redux",
     issuer: "Udemy",
     date: "July 2025",
     image: "/certificates/react.jpg",
+    isPdf: false,
   },
   {
     title: "Cloud Essential Learning Plan",
     issuer: "AWS Training and Certification",
     date: "January 2023",
     image: "/certificates/AWS Learning Plan Completion Certificate-4.png",
+    isPdf: false,
   },
   {
     title: "AWS Cloud Essentials",
     issuer: "AWS Training and Certification",
     date: "January 2023",
     image: "/certificates/AWS Course Completion Certificate-3.png",
+    isPdf: false,
   },
   {
     title: "AWS Cloud Practioner Essentials",
     issuer: "AWS Training and Certification",
     date: "January 2023",
     image: "/certificates/AWS Course Completion Certificate-2.png",
+    isPdf: false,
   },
   {
     title: "AWS Billing and Cost Management",
     issuer: "AWS Training and Certification",
     date: "January 2023",
     image: "/certificates/AWS Course Completion Certificate-1.png",
+    isPdf: false,
   },
   {
     title: "Python Programming with Data Science",
     issuer: "Udemy",
     date: "Feb 2022",
     image: "/certificates/python cert.jpg",
+    isPdf: false,
   },
   {
     title: "Full-Stack Dev Road Map",
     issuer: "Filta",
     date: "March 2021",
     image: "/certificates/Full stact dev.png",
+    isPdf: false,
   },
 ];
 
@@ -153,12 +168,21 @@ function CertificatePage() {
             </div>
 
             {/* Image Preview Container */}
-            <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
-              <img
-                src={selectedCert.image}
-                alt={selectedCert.title}
-                className="w-full h-auto max-h-[60vh] object-contain shadow-sm"
-              />
+            {/* Preview Container */}
+            <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-center w-full aspect-[4/3] max-h-[60vh]">
+              {selectedCert.isPdf ? (
+                <iframe
+                  src={`${selectedCert.image}#toolbar=0`}
+                  title={selectedCert.title}
+                  className="w-full h-full border-0 min-h-[40vh]"
+                />
+              ) : (
+                <img
+                  src={selectedCert.image}
+                  alt={selectedCert.title}
+                  className="w-full h-auto max-h-[60vh] object-contain shadow-sm"
+                />
+              )}
             </div>
           </div>
         </div>
