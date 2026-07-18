@@ -58,69 +58,108 @@ function CertificatePage() {
 
   return (
     <div className="content-box pb-20">
-      <div className="text-5xl text-left mb-6">Certificates</div>
+      {/* Section Title */}
+      <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 dark:text-white mb-10 text-left">
+        Certificate
+      </h2>
 
-      {/* Dropdown Filter */}
-      <div className="mb-6 px-4">
-        <label className="mr-2 font-semibold">Filter by Issuer:</label>
-        <select
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="bg-gray-800 text-white border border-gray-600 p-2 rounded-lg"
-        >
-          {issuers.map((issuer, idx) => (
-            <option key={idx} value={issuer}>
-              {issuer}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="flex min-h-[70vh]">
-        <div className="w-full m-auto">
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
-            {filteredCertificates.map((cert, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedCert(cert)}
-                className="bg-gray-800 rounded-2xl shadow-lg p-5 border border-gray-700 hover:border-lightblue cursor-pointer transition duration-300"
-              >
-                <h3 className="text-xl font-semibold mb-1">{cert.title}</h3>
-                <p className="text-sm text-gray-400">
-                  {cert.issuer} — {cert.date}
-                </p>
-                <p className="text-sm text-lightblue mt-2 underline">
-                  Click to view
-                </p>
-              </div>
+      {/* Dropdown Filter Bar */}
+      <div className="mb-10 flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 px-1">
+        <label className="font-mono text-sm font-semibold tracking-wider text-slate-500 dark:text-slate-400">
+          Filter by Issuer:
+        </label>
+        <div className="relative">
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="w-full sm:w-auto appearance-none bg-white dark:bg-brandDarkCard text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 py-2.5 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-sans text-sm cursor-pointer"
+          >
+            {issuers.map((issuer, idx) => (
+              <option key={idx} value={issuer}>
+                {issuer}
+              </option>
             ))}
+          </select>
+          {/* Custom selector dropdown arrow */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+            <i className="fas fa-chevron-down text-xs"></i>
           </div>
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Grid of Certificates */}
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {filteredCertificates.map((cert, index) => (
+          <div
+            key={index}
+            onClick={() => setSelectedCert(cert)}
+            className="glass-card p-6 flex flex-col justify-between border border-slate-200/50 dark:border-slate-800/50 rounded-2xl cursor-pointer group hover:scale-[1.02]"
+          >
+            <div className="space-y-3">
+              {/* Badge Icon */}
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/15 flex items-center justify-center text-blue-500 dark:text-lightblue text-lg">
+                <i className="fas fa-award"></i>
+              </div>
+              
+              <h3 className="text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-500 transition-colors line-clamp-2">
+                {cert.title}
+              </h3>
+            </div>
+            
+            <div className="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800/40 flex justify-between items-end">
+              <div>
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  {cert.issuer}
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {cert.date}
+                </p>
+              </div>
+              <span className="text-xs font-mono font-medium text-blue-500 dark:text-lightblue flex items-center gap-1 group-hover:underline">
+                View <i className="fas fa-arrow-right text-[10px]"></i>
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Lighbox Modal */}
       {selectedCert && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center z-50 p-4 transition-opacity duration-300"
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="bg-gray-900 p-4 rounded-lg max-w-3xl w-full relative"
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl max-w-3xl w-full relative shadow-2xl animate-fade-in-up"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Modal Close Button */}
             <button
-              className="absolute top-2 right-2 text-white text-xl font-bold hover:text-lightblue"
+              className="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 z-10 focus:outline-none"
               onClick={() => setSelectedCert(null)}
+              aria-label="Close modal"
             >
+              <i className="fas fa-times"></i>
             </button>
-            <h3 className="text-2xl font-semibold text-lightblue mb-4">
-              {selectedCert.title}
-            </h3>
-            <img
-              src={selectedCert.image}
-              alt={selectedCert.title}
-              className="w-full rounded shadow"
-            />
+
+            {/* Modal Header */}
+            <div className="mb-4 pr-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white leading-tight">
+                {selectedCert.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-400 font-mono mt-1">
+                {selectedCert.issuer} &bull; {selectedCert.date}
+              </p>
+            </div>
+
+            {/* Image Preview Container */}
+            <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
+              <img
+                src={selectedCert.image}
+                alt={selectedCert.title}
+                className="w-full h-auto max-h-[60vh] object-contain shadow-sm"
+              />
+            </div>
           </div>
         </div>
       )}

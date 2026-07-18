@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -9,7 +10,11 @@ module.exports = {
       colors: {
         navy: '#001C35',
         lightnavy: '#012b52',
-        lightblue: '#47B5FF'
+        lightblue: '#47B5FF',
+        brandDark: '#0B0F19',
+        brandDarkCard: '#151E2E',
+        brandLight: '#F8FAFC',
+        brandLightCard: '#FFFFFF',
       },
       container: {
         center: true,
