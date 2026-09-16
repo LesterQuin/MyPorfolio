@@ -137,7 +137,7 @@ function HomePage({ scrollDown, projectsRef, contactRef }) {
                   onClick={() => scrollDown(projectsRef)}
                   className="px-6 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-400 dark:to-indigo-500 text-white font-semibold shadow-md hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center space-x-2.5 focus:outline-none"
                 >
-                  <span>View Projects</span>
+                  <span>View Featured Work</span>
                   <i className="fas fa-arrow-right text-xs"></i>
                 </button>
                 <button

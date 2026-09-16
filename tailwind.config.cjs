@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile-xs': {max: '320px'},
+        'mobile-md': {max: '375px'},
+        'mobile-lg': {max: '450px'},
+        'tablet' : {max: '740px'}
+      },
       colors: {
         navy: '#001C35',
         lightnavy: '#012b52',
@@ -20,12 +26,6 @@ module.exports = {
         center: true,
         padding: '100px',
       },
-    },
-    screens: {
-      'mobile-xs': {max: '320px'},
-      'mobile-md': {max: '375px'},
-      'mobile-lg': {max: '450px'},
-      'tablet' : {max: '740px'}
     },
   },
   plugins: [],

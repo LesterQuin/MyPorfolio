@@ -151,8 +151,8 @@ function App() {
           }`}
           onClick={() => scrollDown(projectsRef)}
         >
-          <i className="fas fa-code text-[10px] sm:text-xs"></i>
-          <span>Projects</span>
+          <i className="fas fa-laptop-code text-[10px] sm:text-xs"></i>
+          <span>Featured Work</span>
         </button>
         <button
           className={`text-left font-medium px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full transition-all duration-200 flex items-center space-x-1.5 ${
@@ -179,9 +179,18 @@ function App() {
       </Header>
       
       <RightPanel theme={theme} />
-      <LeftPanel theme={theme} />
+      <LeftPanel
+        theme={theme}
+        activeSection={activeSection}
+        scrollDown={scrollDown}
+        aboutmeRef={aboutmeRef}
+        experienceRef={experienceRef}
+        projectsRef={projectsRef}
+        certificateRef={certificateRef}
+        contactRef={contactRef}
+      />
       
-      <main className="relative z-10">
+      <main className="relative z-10 lg:pl-64 xl:pl-72">
         <div>
           <HomePage 
             scrollDown={scrollDown} 
